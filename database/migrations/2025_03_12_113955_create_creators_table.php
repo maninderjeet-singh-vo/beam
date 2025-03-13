@@ -11,12 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('creators', function (Blueprint $table) {
+        Schema::create('creator_details', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('user_id');
-            $table->string('zoom_access_token');
-            $table->string('zoom_refresh_token');
-            $table->string('zoom_token_expires_at');
+            $table->text('zoom_access_token');
+            $table->text('zoom_refresh_token');
+            $table->timestamp('zoom_token_expires_at')->nullable();
             $table->timestamps();
             $table->foreign('user_id')->references('id')->on('users');
         });

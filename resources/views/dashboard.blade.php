@@ -26,7 +26,7 @@
                         <a class="nav-link" href="javascript:void(0)">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="javascript:void(0)">About</a>
+                        <a class="nav-link" href="{{route('book-event')}}">Book Event Direct</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{route('zoom.auth')}}">Zoom Linking</a>
