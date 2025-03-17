@@ -50,6 +50,17 @@ class AuthController extends Controller
         return view('dashboard');
     }
 
+
+    public function createMeeting(Request $request)
+    {
+        $zoomAccessToken = auth()->user()->creator->zoom_access_token; // Assuming each creator has their own Zoom token
+        $zoomService = new ZoomService($zoomAccessToken);
+
+        $meeting = $zoomService->createMeeting(auth()->user(), "My Meeting");
+
+        return response()->json($meeting);
+    }
+
     public function bookEvent(Request $request) {
         try {
             $creator = User::find(2);
